@@ -5,7 +5,7 @@ using System.Xml.Linq;
 namespace CareMiApi4.Models
 {
 
-    [Table("t_cm_agendamento_exame")]
+    [Table("t_cm4_agendamento_exame")]
     public class AgendamentoExame
     {
         [Key]
@@ -36,10 +36,10 @@ namespace CareMiApi4.Models
         [Column(TypeName = "DATE")]
         public DateTime DtEnvio { get; set; }
 
-        [Required]
-        public int MedicoId { get; set; }
         [ForeignKey("MedicoId")]
-        public Medico Medico { get; set; }
+        public int? MedicoId { get; set; }
+        
+        public Medico? Medico { get; set; }
 
         [ForeignKey("PacienteId")]
         public int? PacienteId { get; set; }

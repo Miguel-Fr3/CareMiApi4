@@ -1,11 +1,12 @@
 ﻿using CareMiApi4.Data;
 using CareMiApi4.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CareMiApi4.Controllers
 {
-
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PacientePlanosSaudeController : ControllerBase

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_paciente")]
+    [Table("t_cm4_paciente")]
     public class Paciente
     {
         [Key]
@@ -27,11 +27,11 @@ namespace CareMiApi4.Models
         public char FlSexoBiologico { get; set; }
 
         [ForeignKey("UsuarioCdUsuario")]
-        public int UsuarioCdUsuario { get; set; }
+        public int? UsuarioCdUsuario { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
 
-        public Carteirinha Carteirinha { get; set; }
+        public Carteirinha? Carteirinha { get; set; }
 
         public ICollection<AgendamentoExame>? AgendamentoExame { get; set; }
 

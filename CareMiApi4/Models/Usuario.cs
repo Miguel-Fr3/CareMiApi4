@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_usuario")]
+    [Table("t_cm4_usuario")]
     public class Usuario
     {
         [Key]

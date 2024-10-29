@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_login")]
+    [Table("t_cm4_login")]
     public class Login
     {
         [Key]
@@ -22,9 +22,9 @@ namespace CareMiApi4.Models
         public int FgAtivo { get; set; }
 
         [ForeignKey("Usuario")]
-        public int UsuarioId { get; set; }
+        public int? UsuarioId { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
 
         public Login()
         {

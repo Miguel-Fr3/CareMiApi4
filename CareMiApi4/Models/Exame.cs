@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_exame")]
+    [Table("t_cm4_exame")]
     public class Exame
     {
 

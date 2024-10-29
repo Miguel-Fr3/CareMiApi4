@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CareMiApi4.Data;
 using CareMiApi4.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CareMiApi4.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -23,6 +25,7 @@ namespace CareMiApi4.Controllers
 
         // GET: api/Usuarios
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
             return await _context.Usuarios.ToListAsync();

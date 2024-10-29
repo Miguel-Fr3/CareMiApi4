@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_medico")]
+    [Table("t_cm4_medico")]
     public class Medico
     {
         [Key]

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_paciente_plano_saude")]
+    [Table("t_cm4_paciente_plano_saude")]
     public class PacientePlanoSaude
     {
         [Key]
@@ -30,7 +30,7 @@ namespace CareMiApi4.Models
         [ForeignKey("PacienteId")]
         public int PacienteId { get; set; }
 
-        public Paciente Paciente { get; set; }
+        public Paciente? Paciente { get; set; }
 
         public PacientePlanoSaude()
         {

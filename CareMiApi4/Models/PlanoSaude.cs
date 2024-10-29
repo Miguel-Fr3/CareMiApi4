@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_plano_saude")]
+    [Table("t_cm4_plano_saude")]
     public class PlanoSaude
     {
         [Key]

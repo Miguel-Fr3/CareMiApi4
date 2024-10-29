@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CareMiApi4.Models
 {
-    [Table("t_cm_carteirinha")]
+    [Table("t_cm4_carteirinha")]
     public class Carteirinha
     {
         [Key]
