@@ -4,6 +4,7 @@ using Microsoft.ML.Data;
 using System.Linq;
 using CareMiApi4.Data; 
 using CareMiApi4.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CareMiApi4.Controllers
 {
@@ -30,7 +31,7 @@ namespace CareMiApi4.Controllers
         [ColumnName("PredictedLabel")]
         public string PredictedExame { get; set; }
     }
-
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PrevisaoController : ControllerBase
