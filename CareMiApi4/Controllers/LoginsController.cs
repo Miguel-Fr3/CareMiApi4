@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CareMiApi4.Controllers
 {
-    
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginsController : ControllerBase
@@ -24,7 +24,6 @@ namespace CareMiApi4.Controllers
         }
 
         // GET: api/Logins
-        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Login>>> GetLogins()
         {
@@ -32,7 +31,6 @@ namespace CareMiApi4.Controllers
         }
 
         // GET: api/Logins/5
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Login>> GetLogin(int id)
         {
@@ -48,7 +46,6 @@ namespace CareMiApi4.Controllers
 
         // PUT: api/Logins/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutLogin(int id, Login login)
         {
@@ -90,7 +87,6 @@ namespace CareMiApi4.Controllers
         }
 
         // DELETE: api/Logins/5
-        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLogin(int id)
         {
