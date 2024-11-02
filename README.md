@@ -91,7 +91,7 @@ Para acessar a documentação, navegue até `https://localhost:7148/swagger/inde
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/Miguel-Fr3/CareMiAPI
+   git clone https://github.com/Miguel-Fr3/CareMiApi4
 
 2. Configure as variáveis de ambiente com as credenciais de acesso ao banco Oracle:
 
