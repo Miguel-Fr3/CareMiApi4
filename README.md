@@ -46,6 +46,7 @@ Para utilizar a IA de previsão, envie uma solicitação **POST** com os dados d
 
 ```json
 {
+  "DsResultado" : "",
   "NrHormonioTireostimulanteTSH": 2.8,
   "VrResultado": 245.2,
   "NrGlobulosBrancos": 6500,
