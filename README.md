@@ -101,7 +101,7 @@ Para acessar a documentação, navegue até `https://localhost:7148/swagger/inde
 
 4. Inicie a aplicação:
    ```bash
-   dotnet ef database update
+   dotnet run
 
 
 ## Integrantes do Grupo
