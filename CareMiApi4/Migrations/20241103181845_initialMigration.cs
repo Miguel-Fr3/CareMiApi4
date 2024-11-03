@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace CareMiApi4.Migrations
 {
     /// <inheritdoc />
@@ -244,7 +242,7 @@ namespace CareMiApi4.Migrations
                     NrGlobulosBrancos = table.Column<short>(type: "NUMBER(5)", nullable: false),
                     NrPlaquetas = table.Column<short>(type: "NUMBER(5)", nullable: false),
                     NrHemoglobinaGlicada = table.Column<short>(type: "NUMBER(5)", nullable: false),
-                    NrCreatinina = table.Column<decimal>(type: "NUMBER(5,2)", nullable: false),
+                    NrCreatinina = table.Column<short>(type: "NUMBER(5)", nullable: false),
                     NrColesterolTotal = table.Column<short>(type: "NUMBER(5)", nullable: false),
                     NrColesterolHDL = table.Column<short>(type: "NUMBER(5)", nullable: false),
                     NrColesterolLDL = table.Column<short>(type: "NUMBER(5)", nullable: false),
@@ -263,21 +261,14 @@ namespace CareMiApi4.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "t_cm4_resultado_exame",
-                columns: new[] { "CdResultado", "DsObservacoes", "DsResultado", "NrColesterolHDL", "NrColesterolLDL", "NrColesterolTotal", "NrCreatinina", "NrGlobulosBrancos", "NrGlobulosVermelhos", "NrHemoglobinaGlicada", "NrHormônioTireostimulanteTSH", "NrPlaquetas", "NrTriglicerides", "TExameCdExame", "VrResultado" },
-                values: new object[,]
-                {
-                    { 1, "Tudo dentro dos parâmetros", "Normal", (short)60, (short)100, (short)180, 1m, (short)6000, (short)4500, (short)5, (short)2, (short)-12144, (short)140, null, 120.5m },
-                    { 2, "Colesterol elevado", "Alto", (short)50, (short)160, (short)240, 1.2m, (short)6100, (short)4700, (short)6, (short)3, (short)-7144, (short)200, null, 220.8m },
-                    { 3, "Anemia detectada", "Baixo", (short)70, (short)80, (short)150, 0.8m, (short)5500, (short)3800, (short)4, (short)1, (short)-32144, (short)130, null, 90.3m },
-                    { 4, "Nível elevado de glicose", "Pré-diabetes", (short)55, (short)105, (short)190, 1m, (short)5900, (short)4200, (short)6, (short)2, (short)-17144, (short)150, null, 140.0m },
-                    { 5, "Pressão arterial acima do normal", "Hipertensão", (short)65, (short)120, (short)200, 1.1m, (short)6000, (short)4600, (short)5, (short)2, (short)-2144, (short)170, null, 160.0m },
-                    { 6, "Nível de hemoglobina abaixo do ideal", "Anemia leve", (short)60, (short)75, (short)155, 0.9m, (short)5600, (short)3500, (short)4, (short)1, (short)-27144, (short)125, null, 85.0m },
-                    { 7, "Glicose elevada", "Diabetes", (short)40, (short)170, (short)250, 1.3m, (short)6000, (short)4400, (short)8, (short)3, (short)-14144, (short)220, null, 240.0m },
-                    { 8, "Nível elevado de TSH", "Hipotireoidismo", (short)58, (short)110, (short)210, 1.0m, (short)5700, (short)4300, (short)5, (short)5, (short)-22144, (short)160, null, 105.3m },
-                    { 9, "Recomenda-se dieta para redução de colesterol", "Colesterol alto", (short)50, (short)150, (short)230, 1.1m, (short)6100, (short)4500, (short)5, (short)2, (short)-17144, (short)190, null, 195.4m },
-                    { 10, "Necessário acompanhamento médico urgente", "Anemia severa", (short)65, (short)60, (short)140, 0.7m, (short)5200, (short)3000, (short)3, (short)1, (short)23392, (short)110, null, 70.2m }
-                });
+                table: "t_cm4_usuario",
+                columns: new[] { "CdUsuario", "DsEstadoCivil", "DsNacionalidade", "DsProfissao", "DtCadastro", "DtNascimento", "FgAtivo", "NmUsuario", "NrCpf", "NrRg", "NrTelefone" },
+                values: new object[] { 1, "casado", "BR", "estagiario", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "usuario Padrao", "Cpf123456", "rg123456", "telefone" });
+
+            migrationBuilder.InsertData(
+                table: "t_cm4_login",
+                columns: new[] { "CdLogin", "DsSenha", "FgAtivo", "NrCpf", "UsuarioId" },
+                values: new object[] { 1, "senha123456", 1, "Cpf123456", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_t_cm4_agendamento_exame_MedicoId",

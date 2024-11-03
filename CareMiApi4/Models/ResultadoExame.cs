@@ -18,51 +18,52 @@ namespace CareMiApi4.Models
         public string DsObservacoes { get; set; }
 
         [Column(TypeName = "NUMBER(5, 2)")]
-        public float VrResultado { get; set; }
-
-
-        [Column(TypeName = "NUMBER(5)")]
-        public float NrGlobulosVermelhos { get; set; }
+        public decimal VrResultado { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrGlobulosBrancos { get; set; }
+        public int NrGlobulosVermelhos { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrPlaquetas { get; set; }
+        public int NrGlobulosBrancos { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrHemoglobinaGlicada { get; set; }
-
-        [Column(TypeName = "NUMBER(5, 2)")]
-        public float NrCreatinina { get; set; }
-
+        public int NrPlaquetas { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrColesterolTotal { get; set; }
+        public int NrHemoglobinaGlicada { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrColesterolHDL { get; set; }
+        public int NrCreatinina { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrColesterolLDL { get; set; }
+        public int NrColesterolTotal { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrTriglicerides { get; set; }
+        public int NrColesterolHDL { get; set; }
 
         [Column(TypeName = "NUMBER(5)")]
-        public float NrHormonioTireostimulanteTSH { get; set; } 
+        public int NrColesterolLDL { get; set; }
+
+        [Column(TypeName = "NUMBER(5)")]
+        public int NrTriglicerides { get; set; }
+
+        [Column(TypeName = "NUMBER(5)")]
+        public int NrHormônioTireostimulanteTSH { get; set; }
 
         [ForeignKey("Exame")]
         public int? TExameCdExame { get; set; }
 
         public Exame? Exame { get; set; }
 
-        public ResultadoExame() { }
 
-        public ResultadoExame(int cdResultado, string dsResultado, string dsObservacoes, float vrResultado,
-                              int nrGlobulosVermelhos, int nrGlobulosBrancos, int nrPlaquetas, int nrHemoglobinaGlicada,
-                              float nrCreatinina, int nrColesterolTotal, int nrColesterolHDL, int nrColesterolLDL,
-                              int nrTriglicerides, int nrHormonioTireostimulanteTSH, int? tExameCdExame)
+        public ResultadoExame()
+        {
+        }
+
+
+        public ResultadoExame(int cdResultado, string dsResultado, string dsObservacoes, decimal vrResultado, int nrGlobulosVermelhos,
+                              int nrGlobulosBrancos, int nrPlaquetas, int nrHemoglobinaGlicada, int nrCreatinina, int nrColesterolTotal,
+                              int nrColesterolHDL, int nrColesterolLDL, int nrTriglicerides, int nrHormônioTireostimulanteTSH, int tExameCdExame)
         {
             CdResultado = cdResultado;
             DsResultado = dsResultado;
@@ -77,10 +78,8 @@ namespace CareMiApi4.Models
             NrColesterolHDL = nrColesterolHDL;
             NrColesterolLDL = nrColesterolLDL;
             NrTriglicerides = nrTriglicerides;
-            NrHormonioTireostimulanteTSH = nrHormonioTireostimulanteTSH;
+            NrHormônioTireostimulanteTSH = nrHormônioTireostimulanteTSH;
             TExameCdExame = tExameCdExame;
         }
-
-
     }
 }

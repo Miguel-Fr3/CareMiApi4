@@ -12,8 +12,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace CareMiApi4.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241028221844_fixtype")]
-    partial class fixtype
+    [Migration("20241103181845_initialMigration")]
+    partial class initialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,6 +178,16 @@ namespace CareMiApi4.Migrations
                         .HasFilter("\"UsuarioId\" IS NOT NULL");
 
                     b.ToTable("t_cm4_login");
+
+                    b.HasData(
+                        new
+                        {
+                            CdLogin = 1,
+                            DsSenha = "senha123456",
+                            FgAtivo = 1,
+                            NrCpf = "Cpf123456",
+                            UsuarioId = 1
+                        });
                 });
 
             modelBuilder.Entity("CareMiApi4.Models.Medico", b =>
@@ -363,8 +373,8 @@ namespace CareMiApi4.Migrations
                     b.Property<short>("NrColesterolTotal")
                         .HasColumnType("NUMBER(5)");
 
-                    b.Property<decimal>("NrCreatinina")
-                        .HasColumnType("NUMBER(5, 2)");
+                    b.Property<short>("NrCreatinina")
+                        .HasColumnType("NUMBER(5)");
 
                     b.Property<short>("NrGlobulosBrancos")
                         .HasColumnType("NUMBER(5)");
@@ -375,7 +385,7 @@ namespace CareMiApi4.Migrations
                     b.Property<short>("NrHemoglobinaGlicada")
                         .HasColumnType("NUMBER(5)");
 
-                    b.Property<short>("NrHormonioTireostimulanteTSH")
+                    b.Property<short>("NrHormônioTireostimulanteTSH")
                         .HasColumnType("NUMBER(5)");
 
                     b.Property<short>("NrPlaquetas")
@@ -397,178 +407,6 @@ namespace CareMiApi4.Migrations
                         .HasFilter("\"TExameCdExame\" IS NOT NULL");
 
                     b.ToTable("t_cm4_resultado_exame");
-
-                    b.HasData(
-                        new
-                        {
-                            CdResultado = 1,
-                            DsObservacoes = "Tudo dentro dos parâmetros",
-                            DsResultado = "Normal",
-                            NrColesterolHDL = (short)60,
-                            NrColesterolLDL = (short)100,
-                            NrColesterolTotal = (short)180,
-                            NrCreatinina = 1m,
-                            NrGlobulosBrancos = (short)6000,
-                            NrGlobulosVermelhos = (short)4500,
-                            NrHemoglobinaGlicada = (short)5,
-                            NrHormonioTireostimulanteTSH = (short)2,
-                            NrPlaquetas = (short)-12144,
-                            NrTriglicerides = (short)140,
-                            VrResultado = 120.5m
-                        },
-                        new
-                        {
-                            CdResultado = 2,
-                            DsObservacoes = "Colesterol elevado",
-                            DsResultado = "Alto",
-                            NrColesterolHDL = (short)50,
-                            NrColesterolLDL = (short)160,
-                            NrColesterolTotal = (short)240,
-                            NrCreatinina = 1.2m,
-                            NrGlobulosBrancos = (short)6100,
-                            NrGlobulosVermelhos = (short)4700,
-                            NrHemoglobinaGlicada = (short)6,
-                            NrHormonioTireostimulanteTSH = (short)3,
-                            NrPlaquetas = (short)-7144,
-                            NrTriglicerides = (short)200,
-                            VrResultado = 220.8m
-                        },
-                        new
-                        {
-                            CdResultado = 3,
-                            DsObservacoes = "Anemia detectada",
-                            DsResultado = "Baixo",
-                            NrColesterolHDL = (short)70,
-                            NrColesterolLDL = (short)80,
-                            NrColesterolTotal = (short)150,
-                            NrCreatinina = 0.8m,
-                            NrGlobulosBrancos = (short)5500,
-                            NrGlobulosVermelhos = (short)3800,
-                            NrHemoglobinaGlicada = (short)4,
-                            NrHormonioTireostimulanteTSH = (short)1,
-                            NrPlaquetas = (short)-32144,
-                            NrTriglicerides = (short)130,
-                            VrResultado = 90.3m
-                        },
-                        new
-                        {
-                            CdResultado = 4,
-                            DsObservacoes = "Nível elevado de glicose",
-                            DsResultado = "Pré-diabetes",
-                            NrColesterolHDL = (short)55,
-                            NrColesterolLDL = (short)105,
-                            NrColesterolTotal = (short)190,
-                            NrCreatinina = 1m,
-                            NrGlobulosBrancos = (short)5900,
-                            NrGlobulosVermelhos = (short)4200,
-                            NrHemoglobinaGlicada = (short)6,
-                            NrHormonioTireostimulanteTSH = (short)2,
-                            NrPlaquetas = (short)-17144,
-                            NrTriglicerides = (short)150,
-                            VrResultado = 140.0m
-                        },
-                        new
-                        {
-                            CdResultado = 5,
-                            DsObservacoes = "Pressão arterial acima do normal",
-                            DsResultado = "Hipertensão",
-                            NrColesterolHDL = (short)65,
-                            NrColesterolLDL = (short)120,
-                            NrColesterolTotal = (short)200,
-                            NrCreatinina = 1.1m,
-                            NrGlobulosBrancos = (short)6000,
-                            NrGlobulosVermelhos = (short)4600,
-                            NrHemoglobinaGlicada = (short)5,
-                            NrHormonioTireostimulanteTSH = (short)2,
-                            NrPlaquetas = (short)-2144,
-                            NrTriglicerides = (short)170,
-                            VrResultado = 160.0m
-                        },
-                        new
-                        {
-                            CdResultado = 6,
-                            DsObservacoes = "Nível de hemoglobina abaixo do ideal",
-                            DsResultado = "Anemia leve",
-                            NrColesterolHDL = (short)60,
-                            NrColesterolLDL = (short)75,
-                            NrColesterolTotal = (short)155,
-                            NrCreatinina = 0.9m,
-                            NrGlobulosBrancos = (short)5600,
-                            NrGlobulosVermelhos = (short)3500,
-                            NrHemoglobinaGlicada = (short)4,
-                            NrHormonioTireostimulanteTSH = (short)1,
-                            NrPlaquetas = (short)-27144,
-                            NrTriglicerides = (short)125,
-                            VrResultado = 85.0m
-                        },
-                        new
-                        {
-                            CdResultado = 7,
-                            DsObservacoes = "Glicose elevada",
-                            DsResultado = "Diabetes",
-                            NrColesterolHDL = (short)40,
-                            NrColesterolLDL = (short)170,
-                            NrColesterolTotal = (short)250,
-                            NrCreatinina = 1.3m,
-                            NrGlobulosBrancos = (short)6000,
-                            NrGlobulosVermelhos = (short)4400,
-                            NrHemoglobinaGlicada = (short)8,
-                            NrHormonioTireostimulanteTSH = (short)3,
-                            NrPlaquetas = (short)-14144,
-                            NrTriglicerides = (short)220,
-                            VrResultado = 240.0m
-                        },
-                        new
-                        {
-                            CdResultado = 8,
-                            DsObservacoes = "Nível elevado de TSH",
-                            DsResultado = "Hipotireoidismo",
-                            NrColesterolHDL = (short)58,
-                            NrColesterolLDL = (short)110,
-                            NrColesterolTotal = (short)210,
-                            NrCreatinina = 1.0m,
-                            NrGlobulosBrancos = (short)5700,
-                            NrGlobulosVermelhos = (short)4300,
-                            NrHemoglobinaGlicada = (short)5,
-                            NrHormonioTireostimulanteTSH = (short)5,
-                            NrPlaquetas = (short)-22144,
-                            NrTriglicerides = (short)160,
-                            VrResultado = 105.3m
-                        },
-                        new
-                        {
-                            CdResultado = 9,
-                            DsObservacoes = "Recomenda-se dieta para redução de colesterol",
-                            DsResultado = "Colesterol alto",
-                            NrColesterolHDL = (short)50,
-                            NrColesterolLDL = (short)150,
-                            NrColesterolTotal = (short)230,
-                            NrCreatinina = 1.1m,
-                            NrGlobulosBrancos = (short)6100,
-                            NrGlobulosVermelhos = (short)4500,
-                            NrHemoglobinaGlicada = (short)5,
-                            NrHormonioTireostimulanteTSH = (short)2,
-                            NrPlaquetas = (short)-17144,
-                            NrTriglicerides = (short)190,
-                            VrResultado = 195.4m
-                        },
-                        new
-                        {
-                            CdResultado = 10,
-                            DsObservacoes = "Necessário acompanhamento médico urgente",
-                            DsResultado = "Anemia severa",
-                            NrColesterolHDL = (short)65,
-                            NrColesterolLDL = (short)60,
-                            NrColesterolTotal = (short)140,
-                            NrCreatinina = 0.7m,
-                            NrGlobulosBrancos = (short)5200,
-                            NrGlobulosVermelhos = (short)3000,
-                            NrHemoglobinaGlicada = (short)3,
-                            NrHormonioTireostimulanteTSH = (short)1,
-                            NrPlaquetas = (short)23392,
-                            NrTriglicerides = (short)110,
-                            VrResultado = 70.2m
-                        });
                 });
 
             modelBuilder.Entity("CareMiApi4.Models.Usuario", b =>
@@ -626,6 +464,22 @@ namespace CareMiApi4.Migrations
                     b.HasKey("CdUsuario");
 
                     b.ToTable("t_cm4_usuario");
+
+                    b.HasData(
+                        new
+                        {
+                            CdUsuario = 1,
+                            DsEstadoCivil = "casado",
+                            DsNacionalidade = "BR",
+                            DsProfissao = "estagiario",
+                            DtCadastro = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DtNascimento = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FgAtivo = 1,
+                            NmUsuario = "usuario Padrao",
+                            NrCpf = "Cpf123456",
+                            NrRg = "rg123456",
+                            NrTelefone = "telefone"
+                        });
                 });
 
             modelBuilder.Entity("CareMiApi4.Models.AgendamentoExame", b =>
